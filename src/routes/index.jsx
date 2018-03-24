@@ -1,18 +1,20 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, IndexRedirect, browserHistory } from 'react-router';
+import { Router, Route } from 'react-router';
+import createBrowserHistory from 'history/createBrowserHistory';
 
 import Layout from '../containers/layoutContainer';
 import Demo from '../containers/demoContainer';
 import Test from '../containers/testContainer';
 
+const browserHistory = createBrowserHistory();
+
 render(
     <Router history={browserHistory}>
-        <Route path="/" component={Layout}>
-            <IndexRedirect to="demo" />
-            <Route path="demo" component={Demo} />
-            <Route path="test" component={Test} />
-        </Route>
+        <Layout>
+            <Route path="/" component={Demo} />
+            <Route path="/test" component={Test} />
+        </Layout>
     </Router>
     , document.getElementById('app')
 )

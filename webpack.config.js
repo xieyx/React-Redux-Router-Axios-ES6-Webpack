@@ -7,11 +7,10 @@ var BUILD_PATH = path.resolve(ROOT_PATH, 'dist');
 var SRC_PATH = path.resolve(BUILD_PATH, 'assets');
 
 const publicPath = '/assets/';
-const port = 8091;
+const port = 8008;
 
 module.exports = {
-    port: port,
-    debug: true,
+    mode: 'development',
     devtool: 'eval',
     entry: {
         app: path.resolve(APP_PATH, 'routes/index.jsx')
@@ -30,23 +29,23 @@ module.exports = {
         noInfo: false
     },
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['.jsx', '.js']
     },
     module: {
-        loaders: [
-            {
-                test: /\.css$/,
-                loader: 'style-loader!css-loader!sass-loader'
-            },
-            {
-                test: /\.scss$/,
-                loader: 'style-loader!css-loader!sass-loader?outputStyle=expanded'
-            },
+        rules: [
             {
                 test: /\.jsx?$/,
-                loader: 'babel',
+                use: {
+                    loader: 'babel-loader',
+                },
                 include: APP_PATH
             }
         ]
-    }
-}
+    },
+    plugins: [
+        new webpack.LoaderOptionsPlugin({
+            port: port,
+            debug: true
+        })
+    ]
+};
