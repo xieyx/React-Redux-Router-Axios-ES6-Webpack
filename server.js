@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const webpackDevServer = require('webpack-dev-server');
 const config  = require('./webpack.config');
-//const open = require('open');
+const open = require('open');
 const port = 8008;
 new webpackDevServer(webpack(config), config.devServer)
 .listen(port, '127.0.0.1', (err) => {
@@ -9,6 +9,6 @@ new webpackDevServer(webpack(config), config.devServer)
         console.log(err);
     }
     console.log('Listening at 127.0.0.1:' + port);
-    //console.log('Opening your system browser...');
-    //open('http://172.30.204.92:' + config.port + '/webpack-dev-server/');
+    console.log('Opening your system browser...');
+    open('http://127.0.0.1:' + port + '/webpack-dev-server/');
 })

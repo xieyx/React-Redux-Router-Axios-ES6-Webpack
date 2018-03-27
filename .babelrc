@@ -7,6 +7,14 @@
             },
             "debug": true
         }],
-        "react"
+        "react",
+        "stage-3"
+    ],
+    "plugins": [
+        ["import", { 
+            "libraryName": "antd",
+            "libraryDirectory": "es",
+            "style": "true"
+        }]
     ]
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Button } from 'antd';
 
 class Demo extends React.Component {
     constructor(props) {
@@ -8,7 +9,8 @@ class Demo extends React.Component {
     render() {
         return (
             <div>
-               demo 
+                <Button type="primary">Primary</Button>
+               demo1 
             </div>
         )
     }

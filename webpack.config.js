@@ -13,7 +13,7 @@ module.exports = {
     mode: 'development',
     devtool: 'eval',
     entry: {
-        app: path.resolve(APP_PATH, 'routes/index.jsx')
+        app: path.resolve(APP_PATH, 'app.jsx')
     },
     output: {
         path: SRC_PATH,
@@ -33,6 +33,28 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
+                include: APP_PATH
+            },
+            {
+                test: /\.less$/,
+                use: [{
+                    loader: 'style-loader'
+                }, {
+                    loader: 'css-loader'
+                }, {
+                    loader: 'less-loader', options: {
+                        javascriptEnabled: true
+                    }
+                }]
+            },
+            {
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader', 'sass-loader'],
+                include: APP_PATH
+            },
             {
                 test: /\.jsx?$/,
                 use: {
