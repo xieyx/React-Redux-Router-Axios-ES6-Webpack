@@ -1,5 +1,7 @@
 项目名：`新浪金融CRM`，git仓库地址：http://gitlab/jr/jinmiao_crm.git 。本项目第一负责人为 `徐正`。
 
+![](https://img.shields.io/badge/language-javascript-orange.svg)
+![](https://img.shields.io/badge/node-v8.9.3-green.svg)
 
 ## 1. 如何运行
 
